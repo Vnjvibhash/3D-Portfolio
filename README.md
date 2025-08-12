@@ -52,7 +52,7 @@ A modern, animated 3D developer portfolio built with React, Three.js, TailwindCS
 ├── public/
 │   ├── assets/             # Images, textures, models
 │   ├── models/             # 3D ComputerDesk model
-│   └── vite.svg
+│   └── logo.png
 ├── src/
 │   ├── components/         # Reusable components
 │   ├── constants/          # Reusable datas
@@ -71,8 +71,8 @@ A modern, animated 3D developer portfolio built with React, Three.js, TailwindCS
 1. Clone the Repository
 
 ```bash
-git clone https://github.com/VnjVibhash/Portfolio.git
-cd Portfolio
+git clone https://github.com/Vnjvibhash/3D-Portfolio.git
+cd 3D-Portfolio
 ```
 
 2. Install Dependencies
@@ -109,8 +109,6 @@ Assets used in the project can be found [here](https://github.com/Vnjvibhash/3D-
 
 Leave a comment on the [YouTube video](https://www.youtube.com/@innovateria) or open an issue here on GitHub.<br/>
 👉 What should I build next?
-
-- A beautiful Landing Page
 
 - A complete E-commerce site
 
