@@ -5,6 +5,7 @@ const ParallaxBackground = () => {
   const { scrollYProgress } = useScroll();
   const x = useSpring(scrollYProgress, { damping: 50 });
   const mountain3Y = useTransform(x, [0, 0.5], ['0%', '70%']);
+  const vivekaX = useTransform(x, [0, 0.5], ['0%', '40%']);
   const planetsX = useTransform(x, [0, 0.5], ['0%', '-20%']);
   const mountain2Y = useTransform(x, [0, 0.5], ['0%', '30%']);
   const mountain1Y = useTransform(x, [0, 0.5], ['0%', '0%']);
@@ -22,12 +23,13 @@ const ParallaxBackground = () => {
           }}
         />
         {/* Background Model */}
-        <div
-          className="absolute inset-0 w-full h-screen -z-45"
+        <motion.div
+          className="absolute inset-0 -z-45"
           style={{
             backgroundImage: 'url(/assets/vivekajee.png)',
             backgroundPosition: 'bottom',
             backgroundSize: 'cover',
+            x: vivekaX,
           }}
         />
         {/* Mountain Layer 3 */}
