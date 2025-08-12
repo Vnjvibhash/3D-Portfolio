@@ -11,21 +11,20 @@ const ParallaxBackground = () => {
   return (
     <section className="absolute inset-0 bg-black/40">
       <div className="relative h-screen overflow-y-hidden">
-        {/* Background Model */}
-        <div
-          className="absolute inset-0 w-full h-screen -z-45"
-          style={{
-            backgroundImage:
-              'url(/assets/vivekajee.png)',
-            backgroundPosition: 'bottom',
-            backgroundSize: 'cover',
-          }}
-        />
         {/* Background Sky */}
         <div
           className="absolute inset-0 w-full h-screen -z-50"
           style={{
             backgroundImage: 'url(/assets/sky.jpg)',
+            backgroundPosition: 'bottom',
+            backgroundSize: 'cover',
+          }}
+        />
+        {/* Background Model */}
+        <div
+          className="absolute inset-0 w-full h-screen -z-45"
+          style={{
+            backgroundImage: 'url(/assets/vivekajee.png)',
             backgroundPosition: 'bottom',
             backgroundSize: 'cover',
           }}

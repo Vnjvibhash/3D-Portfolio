@@ -7,7 +7,6 @@ import { useMediaQuery } from 'react-responsive';
 import { easing } from 'maath';
 import { Suspense } from 'react';
 import Loader from '../components/Loader';
-// import { PhoenixBird } from '../components/PhoenixBird';
 
 
 const Hero = () => {
