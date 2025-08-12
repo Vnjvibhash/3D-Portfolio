@@ -215,50 +215,51 @@ export const reviews = [
   {
     name: "Arjun",
     username: "@arjun",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
+    body: "Vivek took my half-baked website idea and turned it into a sleek, fully functional platform. His attention to detail blew me away!",
     img: "https://robohash.org/arjun",
   },
   {
     name: "Sneha",
     username: "@sneha",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
+    body: "I was struggling with my mobile app’s UI until Vivek stepped in. He not only redesigned it beautifully but also optimized it for speed. Absolute lifesaver!",
     img: "https://robohash.org/sneha",
   },
   {
     name: "Rohan",
     username: "@rohan",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    body: "From start to finish, Vivek handled my e-commerce project like a pro. Smooth checkout, fast loading — my customers love it.",
     img: "https://robohash.org/rohan",
   },
   {
     name: "Pooja",
     username: "@pooja",
-    body: "This is hands down the best thing I've experienced. Highly recommend!",
+    body: "Vivek built my portfolio site exactly the way I envisioned it. The animations, the responsiveness — everything was spot on.",
     img: "https://robohash.org/pooja",
   },
   {
     name: "Karan",
     username: "@karan",
-    body: "Incredible work! The attention to detail is phenomenal.",
+    body: "My custom booking system is now live thanks to Vivek. He was patient, communicative, and nailed every single feature request.",
     img: "https://robohash.org/karan",
   },
   {
     name: "Anita",
     username: "@anita",
-    body: "This exceeded all my expectations. Absolutely stunning!",
+    body: "I wanted a modern blog with a unique design, and Vivek delivered beyond my expectations. Even helped me set up SEO for better reach.",
     img: "https://robohash.org/anita",
   },
   {
     name: "Rahul",
     username: "@rahul",
-    body: "Simply breathtaking. The best decision I've made in a while.",
+    body: "Vivek turned my messy idea into a polished cross-platform app. The performance is top-notch, and his coding standards are impressive.",
     img: "https://robohash.org/rahul",
   },
   {
     name: "Neha",
     username: "@neha",
-    body: "So glad I found this. It has changed the game for me.",
+    body: "I needed a learning platform for my students, and Vivek delivered a secure, user-friendly solution that exceeded my expectations.",
     img: "https://robohash.org/neha",
   },
 ];
+
 
