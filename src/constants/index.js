@@ -1,6 +1,101 @@
 export const myProjects = [
   {
     id: 1,
+    title: "Shop-Orbit 🛍️",
+    description:
+      "A modern e-commerce platform with seamless shopping experience and intuitive UI.",
+    subDescription: [
+      "Developed with Flutter for cross-platform support.",
+      "Integrated Firebase for real-time database and authentication.",
+      "Includes cart, wishlist, order tracking, and payment gateway integration.",
+      "Optimized for performance and smooth UX."
+    ],
+    href: "https://github.com/Vnjvibhash/Shop-Orbit",
+    image: "/assets/projects/shop-orbit.png",
+    tags: [
+      { id: 1, name: "Flutter", path: "/assets/logos/flutter.svg" },
+      { id: 2, name: "Firebase", path: "/assets/logos/firebase.svg" },
+      { id: 3, name: "Dart", path: "/assets/logos/dart.svg" }
+    ],
+  },
+  {
+    id: 2,
+    title: "BuddyExpense 💰",
+    description:
+      "Smart expense tracking app for friends and groups to manage shared costs effortlessly.",
+    subDescription: [
+      "Built with Flutter for Android & iOS.",
+      "Group-based expense tracking with split options.",
+      "Data sync with Firebase for real-time collaboration.",
+      "Clean and minimal UI for easy usage."
+    ],
+    href: "https://github.com/Vnjvibhash/BuddyExpense",
+    image: "/assets/projects/buddy-expense.png",
+    tags: [
+      { id: 1, name: "Flutter", path: "/assets/logos/flutter.svg" },
+      { id: 2, name: "Firebase", path: "/assets/logos/firebase.svg" },
+    ],
+  },
+  {
+    id: 3,
+    title: "MediMinder 💊",
+    description:
+      "A health companion app that reminds users to take medicines on time.",
+    subDescription: [
+      "Built using Flutter and Dart.",
+      "Schedule medicine reminders with notifications.",
+      "Supports dosage tracking and logs history.",
+      "Syncs data with Firebase for persistence."
+    ],
+    href: "https://github.com/Vnjvibhash/MediMinder",
+    image: "/assets/projects/mediminder.png",
+    tags: [
+      { id: 1, name: "Flutter", path: "/assets/logos/flutter.svg" },
+      { id: 2, name: "Firebase", path: "/assets/logos/firebase.svg" },
+      { id: 3, name: "Notifications", path: "/assets/logos/notifications.svg" }
+    ],
+  },
+  {
+    id: 4,
+    title: "SoulScripter ✍️",
+    description:
+      "A creative writing platform for poets & storytellers to express themselves.",
+    subDescription: [
+      "Developed with React and Firebase backend.",
+      "Users can write, share, and save their creative content.",
+      "Integrated likes, comments, and community engagement.",
+      "Minimalist UI for distraction-free writing."
+    ],
+    href: "https://github.com/Vnjvibhash/SoulScripter",
+    image: "/assets/projects/soul-scripter.png",
+    tags: [
+      { id: 1, name: "React", path: "/assets/logos/react.svg" },
+      { id: 2, name: "Firebase", path: "/assets/logos/firebase.svg" },
+      { id: 3, name: "JavaScript", path: "/assets/logos/javascript.svg" }
+    ],
+  },
+  {
+    id: 5,
+    title: "iDVault – Aadhaar Scanner & Manager",
+    description:
+      "A Flutter app allowing users to scan/upload Aadhaar cards, extract data, and manage records locally with export options.",
+    subDescription: [
+      "Developed using Flutter & Dart with state-management (provider or similar).",
+      "Integrated with Firebase Realtime Database for secure data storage.",
+      "Implemented image processing / OCR for Aadhaar extraction.",
+      "Allows exporting and backing up records securely."
+    ],
+    href: "https://github.com/Vnjvibhash/iDVault",
+    image: "/assets/projects/idvault.png",
+    tags: [
+      { id: 1, name: "Flutter", path: "/assets/logos/flutter.svg" },
+      { id: 2, name: "Firebase", path: "/assets/logos/firebase.svg" },
+      { id: 3, name: "Dart", path: "/assets/logos/dart.svg" },
+      { id: 4, name: "OCR", path: "/assets/logos/ocr.svg" }
+    ],
+  },
+  {
+    id: 6,
     title: "Rangi Cabs – Premium Travel Solutions 🚕",
     description:
       "A responsive and interactive cab booking website designed using core frontend technologies to deliver a premium travel experience.",
@@ -22,7 +117,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 2,
+    id: 7,
     title: "Innovateria Shop – Admin Panel",
     description:
       "A React + Vite web admin panel for managing products, users, orders, and analytics.",
@@ -41,10 +136,10 @@ export const myProjects = [
     ],
   },
   {
-    id: 3,
+    id: 8,
     title: "Innovateria Shop – Server APIs",
     description:
-      "Node.js‑based backend API server powering the Innovateria shopping platform.",
+      "Node.js-based backend API server powering the Innovateria shopping platform.",
     subDescription: [
       "Developed RESTful APIs for users, products, orders, coupons, payments.",
       "Integrated JWT authentication and MongoDB database.",
@@ -60,7 +155,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 4,
+    id: 9,
     title: "WhatsApp Status Saver (Android)",
     description:
       "An Android app written in Kotlin that enables users to download and share WhatsApp statuses locally.",
@@ -80,7 +175,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 5,
+    id: 10,
     title: "EMI Calculator – Flutter App 📱",
     description:
       "A Flutter-based mobile application to calculate Equated Monthly Installments (EMI) for loans with a clean architecture approach.",
@@ -102,7 +197,7 @@ export const myProjects = [
     ]
   },
   {
-    id: 6,
+    id: 11,
     title: "Portfolio App (Flutter)",
     description:
       "A Flutter-based portfolio app showcasing education, achievements, and projects.",
@@ -120,7 +215,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 7,
+    id: 12,
     title: "Love Shayari & Quote – 2024 ❤️",
     description:
       "A beautifully designed Android app offering a vast collection of romantic Shayari, quotes, and status updates in Hindi.",
@@ -138,8 +233,9 @@ export const myProjects = [
       { id: 3, name: "Firebase", path: "/assets/logos/firebase.svg" },
       { id: 4, name: "UI/UX", path: "/assets/logos/uiux.svg" }
     ]
-  },
+  }
 ];
+
 
 
 export const mySocials = [
