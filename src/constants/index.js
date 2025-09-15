@@ -243,9 +243,14 @@ export const mySocials = [
     icon: "/assets/socials/whatsApp.svg",
   },
   {
-    name: "Linkedin",
+    name: "LinkedIn",
     href: "https://www.linkedin.com/mynetwork/discovery-see-all/?usecase=PEOPLE_FOLLOWS&followMember=vivekajee",
     icon: "/assets/socials/linkedIn.svg",
+  },
+  {
+    name: "Github",
+    href: "https://github.com/Vnjvibhash/",
+    icon: "/assets/socials/github.svg",
   },
   {
     name: "Instagram",
