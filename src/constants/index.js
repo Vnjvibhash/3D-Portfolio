@@ -263,7 +263,7 @@ export const experiences = [
   {
     title: "Freelance Developer",
     job: "Self-Employed",
-    date: "2025-Present",
+    date: "2024-Present",
     contents: [
       "✅ Created a personal portfolio using Three.js, React, Vite, and WebAPI to showcase technical expertise.",
       "✅ Built custom mobile and web applications for clients, including e-commerce, utility, and productivity solutions.",
