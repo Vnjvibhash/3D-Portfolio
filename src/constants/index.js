@@ -273,7 +273,7 @@ export const experiences = [
     ],
   },
   {
-    title: "CSA for Axis Bank",
+    title: "Subject Matter Expert for Axis Bank",
     job: "Cogent E Services Ltd",
     date: "2024-Present",
     contents: [
