@@ -262,53 +262,48 @@ export const mySocials = [
 export const experiences = [
   {
     title: "Freelance Developer",
-    job: "Self-Employed",
-    date: "2024-Present",
+    job: "Self-Employed / Innovatera",
+    date: "2023–Present",
     contents: [
-      "✅ Created a personal portfolio using Three.js, React, Vite, and WebAPI to showcase technical expertise.",
-      "✅ Built custom mobile and web applications for clients, including e-commerce, utility, and productivity solutions.",
-      "✅ Designed Play Store-ready app screenshots and marketing assets for clients using Figma, Photoshop, and Flutter-based tools.",
-      "✅ Integrated third-party APIs and optimized back-end workflows for high performance.",
-      "✅ Continuously enhancing technical skills and expanding expertise in modern web development and back-end technologies."
+      "✅ Designed and developed cross-platform mobile and web apps using React Native, Flutter, and Node.js for e-commerce, utility, and productivity solutions.",
+      "✅ Built and published production-ready apps like 'Innovatera Shop' and 'WhatsApp Status Saver' with Firebase integration, API connectivity, and responsive UI.",
+      "✅ Created Play Store assets, marketing visuals, and app previews using Figma and Photoshop for multiple client projects.",
+      "✅ Integrated RESTful APIs and optimized back-end performance using MongoDB, MySQL, and Express.js.",
+      "✅ Focused on app scalability, reducing load time and improving overall performance by over 30%.",
     ],
   },
   {
-    title: "Subject Matter Expert for Axis Bank",
+    title: "Subject Matter Expert (SME) – Axis Bank",
     job: "Cogent E Services Ltd",
-    date: "2024-Present",
+    date: "Oct 2024 – Present",
     contents: [
-      "✅ Assisted customers with inquiries, complaints, and service requests while maintaining high satisfaction scores.",
-      "✅ Handled inbound and outbound calls, resolving issues efficiently under strict time constraints.",
-      "✅ Documented and escalated technical issues to relevant departments for faster resolution.",
-      "✅ Collaborated with team members to improve workflow efficiency and service quality.",
-      "✅ Developed strong communication, problem-solving, and client-handling skills in a fast-paced environment."
+      "✅ Led resolution of complex banking queries and escalations, achieving a 22% reduction in Average Handling Time (AHT) and improved First Call Resolution (FCR).",
+      "✅ Trained and mentored associates on Axis Bank’s products, compliance, and communication standards, enhancing quality audit scores and NPS ratings.",
+      "✅ Performed RCA (Root Cause Analysis) on recurring issues and collaborated with quality teams to streamline workflows and improve customer satisfaction.",
     ],
   },
   {
-    title: "Back-End Developer",
-    job: "Car Manufacture",
-    date: "2023-2024",
+    title: "Android Developer (Intern)",
+    job: "Web Digital Mantra IT Services Pvt. Ltd.",
+    date: "May 2022 – Aug 2022",
     contents: [
-      "✅ Engineered systems for large-scale data ingestion and analysis, ensuring efficient data processing and storage.",
-      "✅ Developed back-end systems enabling vehicle-to-cloud communication for telemetry, diagnostics, and remote control.",
-      "✅ Implemented secure APIs, following ISO 26262 automotive safety standards.",
-      "✅ Ensured data privacy for customers and partners through industry-compliant protocols.",
-      "✅ Delivered remote features like over-the-air updates, real-time tracking, and remote start capabilities.",
+      "✅ Developed Android applications using Java and XML, handling full development lifecycle from design to deployment.",
+      "✅ Integrated RESTful APIs and conducted code reviews, optimizing app performance by 20%.",
+      "✅ Debugged and refactored existing code to improve app stability and maintainability.",
     ],
   },
   {
-    title: "Software Developer",
-    job: "Security & Defense Projects",
-    date: "2021-2023",
+    title: "Junior Software Developer",
+    job: "ConnectWings Infotech Pvt. Ltd.",
+    date: "Nov 2020 – Aug 2021",
     contents: [
-      "✅ Enhanced application security and developed new features, adhering to standards set by the Passive Defense Organization and National Cyberspace Center.",
-      "✅ Designed and implemented intuitive map interfaces using MapsUI, enhancing user experience and enabling seamless interactive map integration.",
-      "✅ Developed applications for industrial automation, leveraging C++ and the Fatek API for PLC communication.",
-      "✅ Enhanced responsiveness and usability of applications using Windows Forms and WPF frameworks.",
-      "✅ Executed XML to SVG conversions using X-DOM, ensuring dynamic and efficient data visualization.",
+      "✅ Contributed to native Android and web app development using Java, HTML, CSS, and JavaScript.",
+      "✅ Utilized Git for version control and optimized legacy codebases for improved performance in newer app versions.",
+      "✅ Integrated secure payment gateways including Paytm, PayU Money, and Razorpay to enable seamless online transactions.",
     ],
   },
 ];
+
 
 export const reviews = [
   {
