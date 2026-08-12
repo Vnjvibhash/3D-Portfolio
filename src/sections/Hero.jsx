@@ -21,15 +21,19 @@ const Hero = () => {
     ? [0, -Math.PI * 0.68, 0]
     : [0, -Math.PI * 0.72, 0];
 
-  const minX = isMobile ? -1.5 : 0.2;
-  const maxX = isMobile ? 1.5 : 3.4;
+  const minX = isMobile ? -1.8 : 0.0;
+  const maxX = isMobile ? 1.8 : 3.6;
+  const minY = isMobile ? -2.6 : -2.4;
+  const maxY = isMobile ? 0.6 : 0.8;
 
   const [currentX, setCurrentX] = useState(defaultX);
+  const [currentY, setCurrentY] = useState(defaultY);
   const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
     setCurrentX(defaultX);
-  }, [defaultX]);
+    setCurrentY(defaultY);
+  }, [defaultX, defaultY]);
 
   return (
     <section className="relative w-full min-h-screen flex items-start justify-center overflow-hidden">
@@ -51,18 +55,21 @@ const Hero = () => {
             />
             <ModelContainer
               scale={scale}
-              y={defaultY}
               z={defaultZ}
               rotation={rotation}
               currentX={currentX}
               setCurrentX={setCurrentX}
+              currentY={currentY}
+              setCurrentY={setCurrentY}
               minX={minX}
               maxX={maxX}
+              minY={minY}
+              maxY={maxY}
               isDragging={isDragging}
               setIsDragging={setIsDragging}
             />
             <ContactShadows
-              position={[currentX, defaultY - (isMobile ? 0.45 : 0.65), defaultZ]}
+              position={[currentX, currentY - (isMobile ? 0.45 : 0.65), defaultZ]}
               opacity={0.38}
               scale={5.5}
               blur={2.5}
@@ -74,7 +81,7 @@ const Hero = () => {
       </figure>
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none hidden sm:flex items-center gap-2 px-4 py-1.5 rounded-full bg-midnight/80 border border-white/15 backdrop-blur-md text-xs text-neutral-300 shadow-xl">
         <span className="inline-block size-2 rounded-full bg-lavender animate-pulse" />
-        <span>Click &amp; drag 3D desk on X-axis • Drag background to rotate</span>
+        <span>Click &amp; drag 3D desk freely • Drag background to rotate</span>
       </div>
     </section>
   );
@@ -82,19 +89,22 @@ const Hero = () => {
 
 function ModelContainer({
   scale,
-  y,
   z,
   rotation,
   currentX,
   setCurrentX,
+  currentY,
+  setCurrentY,
   minX,
   maxX,
+  minY,
+  maxY,
   isDragging,
   setIsDragging,
 }) {
   const groupRef = useRef();
   const [hovered, setHovered] = useState(false);
-  const dragStartRef = useRef({ pointerX: 0, startX: 0 });
+  const dragStartRef = useRef({ pointerX: 0, pointerY: 0, startX: 0, startY: 0 });
 
   useCursor(hovered, isDragging ? 'grabbing' : 'grab', 'auto');
 
@@ -104,18 +114,24 @@ function ModelContainer({
     setIsDragging(true);
     dragStartRef.current = {
       pointerX: e.clientX,
+      pointerY: e.clientY,
       startX: currentX,
+      startY: currentY,
     };
   };
 
   const onPointerMove = (e) => {
     if (!isDragging) return;
     e.stopPropagation();
-    const deltaPx = e.clientX - dragStartRef.current.pointerX;
     const factor = 4.8 / window.innerWidth;
-    const newX = dragStartRef.current.startX + deltaPx * factor;
-    const clampedX = Math.max(minX, Math.min(maxX, newX));
-    setCurrentX(clampedX);
+    const deltaX = (e.clientX - dragStartRef.current.pointerX) * factor;
+    const deltaY = -(e.clientY - dragStartRef.current.pointerY) * factor;
+
+    const newX = dragStartRef.current.startX + deltaX;
+    const newY = dragStartRef.current.startY + deltaY;
+
+    setCurrentX(Math.max(minX, Math.min(maxX, newX)));
+    setCurrentY(Math.max(minY, Math.min(maxY, newY)));
   };
 
   const onPointerUp = (e) => {
@@ -131,7 +147,7 @@ function ModelContainer({
   useFrame((state, delta) => {
     if (groupRef.current) {
       easing.damp(groupRef.current.position, 'x', currentX, 0.1, delta);
-      groupRef.current.position.y = y;
+      easing.damp(groupRef.current.position, 'y', currentY, 0.1, delta);
       groupRef.current.position.z = z;
 
       if (!isDragging) {
@@ -144,7 +160,7 @@ function ModelContainer({
   return (
     <group
       ref={groupRef}
-      position={[currentX, y, z]}
+      position={[currentX, currentY, z]}
       onPointerOver={(e) => {
         e.stopPropagation();
         setHovered(true);
