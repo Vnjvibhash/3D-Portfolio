@@ -12,21 +12,24 @@ const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
   const isTablet = useMediaQuery({ minWidth: 854, maxWidth: 1150 });
 
-  const scale = isSmall ? 0.18 : isMobile ? 0.22 : isTablet ? 0.3 : 0.38;
+  // Reduced model scale for cleaner proportions and better balance
+  const scale = isSmall ? 0.13 : isMobile ? 0.16 : isTablet ? 0.22 : 0.28;
   const position = isSmall
-    ? [0, -1.3, 0]
+    ? [0, -1.15, 0]
     : isMobile
-    ? [0, -1.2, 0]
+    ? [0, -1.05, 0]
     : isTablet
-    ? [0.95, -0.7, 0]
-    : [1.35, -0.65, 0];
+    ? [0.85, -0.65, 0]
+    : [1.25, -0.55, 0];
   const rotation = isMobile
     ? [0, -Math.PI / 2 + 0.15, 0]
     : [0, -Math.PI / 2 + 0.28, 0];
 
   return (
-    <section className="relative flex items-start justify-center min-h-screen overflow-hidden md:items-start md:justify-start c-space">
-      <HeroText />
+    <section className="relative w-full min-h-screen flex items-start justify-center overflow-hidden">
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex items-start justify-start">
+        <HeroText />
+      </div>
       <ParallaxBackground />
       <figure className="absolute inset-0 w-full h-full">
         <Canvas camera={{ position: [0, 1, 3], fov: 60 }}>
@@ -45,9 +48,9 @@ const Hero = () => {
               rotation={rotation}
             />
             <ContactShadows
-              position={isMobile ? [0, -1.8, 0] : [1.35, -1.5, 0]}
-              opacity={0.5}
-              scale={8}
+              position={isMobile ? [0, -1.6, 0] : [1.25, -1.3, 0]}
+              opacity={0.45}
+              scale={7}
               blur={2.5}
               far={4}
               color="#5c33cc"

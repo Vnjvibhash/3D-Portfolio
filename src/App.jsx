@@ -11,11 +11,11 @@ import BackToTop from "./components/BackToTop";
 
 const App = () => {
   return (
-    <div className="relative min-h-screen selection:bg-lavender selection:text-white">
+    <div className="relative min-h-screen selection:bg-lavender selection:text-white overflow-x-hidden">
       <ScrollProgress />
       <Navbar />
+      <Hero />
       <main className="container mx-auto max-w-7xl">
-        <Hero />
         <About />
         <Projects />
         <Experiences />
