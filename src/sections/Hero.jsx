@@ -16,6 +16,7 @@ const Hero = () => {
   const scale = isSmall ? 0.09 : isMobile ? 0.115 : isTablet ? 0.15 : 0.20;
   const defaultY = isSmall ? -1.05 : isMobile ? -0.95 : isTablet ? -0.55 : -0.45;
   const defaultX = isMobile ? 0 : isTablet ? 1.65 : 2.35;
+  const defaultZ = isMobile ? -0.4 : -0.6; // Moved backward in 3D depth
   const rotation = isMobile
     ? [0, -Math.PI * 0.68, 0]
     : [0, -Math.PI * 0.72, 0];
@@ -51,6 +52,7 @@ const Hero = () => {
             <ModelContainer
               scale={scale}
               y={defaultY}
+              z={defaultZ}
               rotation={rotation}
               currentX={currentX}
               setCurrentX={setCurrentX}
@@ -60,7 +62,7 @@ const Hero = () => {
               setIsDragging={setIsDragging}
             />
             <ContactShadows
-              position={[currentX, defaultY - (isMobile ? 0.45 : 0.65), 0]}
+              position={[currentX, defaultY - (isMobile ? 0.45 : 0.65), defaultZ]}
               opacity={0.38}
               scale={5.5}
               blur={2.5}
@@ -81,6 +83,7 @@ const Hero = () => {
 function ModelContainer({
   scale,
   y,
+  z,
   rotation,
   currentX,
   setCurrentX,
@@ -129,6 +132,7 @@ function ModelContainer({
     if (groupRef.current) {
       easing.damp(groupRef.current.position, 'x', currentX, 0.1, delta);
       groupRef.current.position.y = y;
+      groupRef.current.position.z = z;
 
       if (!isDragging) {
         groupRef.current.rotation.y = (state.mouse.x * Math.PI) / 24;
@@ -140,7 +144,7 @@ function ModelContainer({
   return (
     <group
       ref={groupRef}
-      position={[currentX, y, 0]}
+      position={[currentX, y, z]}
       onPointerOver={(e) => {
         e.stopPropagation();
         setHovered(true);
