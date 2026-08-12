@@ -15,14 +15,14 @@ const Hero = () => {
 
   const scale = isSmall ? 0.09 : isMobile ? 0.115 : isTablet ? 0.15 : 0.20;
   const defaultY = isSmall ? -1.05 : isMobile ? -0.95 : isTablet ? -0.55 : -0.45;
-  const defaultX = isMobile ? 0 : isTablet ? 2.10 : 2.95;
+  const defaultX = isMobile ? 0 : isTablet ? 2.50 : 3.45;
   const defaultZ = isMobile ? -0.4 : -0.6; // Moved backward in 3D depth
   const rotation = isMobile
     ? [0, -Math.PI * 0.68, 0]
     : [0, -Math.PI * 0.72, 0];
 
   const minX = isMobile ? -1.5 : 0.2;
-  const maxX = isMobile ? 1.5 : 3.5;
+  const maxX = isMobile ? 1.5 : 4.2;
 
   const [currentX, setCurrentX] = useState(defaultX);
   const [isDragging, setIsDragging] = useState(false);
