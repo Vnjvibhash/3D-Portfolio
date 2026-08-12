@@ -15,16 +15,13 @@ const Hero = () => {
     <section className="flex items-start justify-center min-h-screen overflow-hidden md:items-start md:justify-start c-space">
       <HeroText />
       <ParallaxBackground />
-      <figure
-        className="absolute inset-0"
-        style={{ width: '100vw', height: '100vh' }}
-      >
+      <figure className="absolute inset-0 w-full h-full">
         <Canvas camera={{ position: [0, 1, 3] }}>
           <Suspense fallback={<Loader />}>
             <Float>
               <ComputerDesk
-                scale={isMobile && 0.23}
-                position={isMobile && [0, -1.5, 0]}
+                scale={isMobile ? 0.23 : 0.4}
+                position={isMobile ? [0, -1.5, 0] : [3, -2, -1]}
               />
               <OrbitControls />
             </Float>

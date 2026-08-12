@@ -43,16 +43,16 @@ const Contact = () => {
       );
       setIsLoading(false);
       setFormData({ name: "", email: "", message: "" });
-      showAlertMessage("success", "You message has been sent!");
+      showAlertMessage("success", "Your message has been sent!");
     } catch (error) {
       setIsLoading(false);
       console.log(error);
-      showAlertMessage("danger", "Somthing went wrong!");
+      showAlertMessage("danger", "Something went wrong!");
     }
   };
   return (
     <section
-      className="relative flex items-center c-space section-spacing"
+      className="relative flex items-center justify-center c-space section-spacing"
       id="contact"
     >
       <Particles
@@ -63,57 +63,58 @@ const Contact = () => {
         refresh
       />
       {showAlert && <Alert type={alertType} text={alertMessage} />}
-      <div className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary">
-        <div className="flex flex-col items-start w-full gap-5 mb-10">
+      <div className="flex flex-col items-center justify-center w-full max-w-xl md:max-w-2xl p-6 sm:p-8 md:p-10 mx-auto border border-white/10 rounded-2xl bg-primary/90 shadow-2xl backdrop-blur-md">
+        <div className="flex flex-col items-start w-full gap-3 mb-8">
           <h2 className="text-heading">Let&apos;s Talk</h2>
-          <p className="font-normal text-neutral-400">
+          <p className="font-normal text-neutral-400 text-sm md:text-base">
             Whether you&apos;re looking to build a powerful new website, enhance
             your existing platform, or bring a unique idea to life, I&apos;m
             ready to turn your vision into reality.
           </p>
         </div>
         <form className="w-full" onSubmit={handleSubmit}>
-          <div className="mb-5">
-            <label htmlFor="name" className="feild-label">
-              Full Name
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              className="field-input field-input-focus"
-              placeholder="John Doe"
-              autoComplete="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
+          <div className="grid grid-cols-1 gap-5 mb-5 sm:grid-cols-2">
+            <div>
+              <label htmlFor="name" className="field-label">
+                Full Name
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                className="field-input field-input-focus"
+                placeholder="John Doe"
+                autoComplete="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="field-label">
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                className="field-input field-input-focus"
+                placeholder="JohnDoe@email.com"
+                autoComplete="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
           </div>
-          <div className="mb-5">
-            <label htmlFor="email" className="feild-label">
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              className="field-input field-input-focus"
-              placeholder="JohnDoe@email.com"
-              autoComplete="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="mb-5">
-            <label htmlFor="message" className="feild-label">
+          <div className="mb-6">
+            <label htmlFor="message" className="field-label">
               Message
             </label>
             <textarea
               id="message"
               name="message"
-              type="text"
-              rows="4"
+              rows="5"
               className="field-input field-input-focus"
               placeholder="Share your thoughts..."
               autoComplete="message"
@@ -124,7 +125,7 @@ const Contact = () => {
           </div>
           <button
             type="submit"
-            className="w-full px-1 py-3 text-lg text-center rounded-md cursor-pointer bg-radial from-lavender to-royal hover-animation"
+            className="w-full px-4 py-3.5 text-lg font-medium text-center rounded-lg cursor-pointer bg-gradient-to-r from-lavender to-royal hover:from-royal hover:to-lavender hover-animation transition duration-200 shadow-md"
           >
             {!isLoading ? 'Send' : 'Sending...'}
           </button>

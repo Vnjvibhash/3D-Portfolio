@@ -8,7 +8,7 @@ const ReviewCard = ({ img, name, username, body }) => {
   return (
     <figure
       className={twMerge(
-        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4 border-gray-50/[.1] bg-gradient-to-r bg-indigo to-storm hover:bg-royal hover-animation"
+        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4 border-white/10 bg-gradient-to-r from-indigo to-storm hover:from-royal hover:to-lavender hover-animation"
       )}
     >
       <div className="flex flex-row items-center gap-2">
@@ -26,14 +26,14 @@ const ReviewCard = ({ img, name, username, body }) => {
           <p className="text-xs font-medium text-white/40">{username}</p>
         </div>
       </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
+      <blockquote className="mt-2 text-sm text-neutral-300">{body}</blockquote>
     </figure>
   );
 };
 
 export default function Testimonial() {
   return (
-    <div className="items-start mt-25 md:mt-35 c-space">
+    <div className="flex flex-col items-start mt-24 md:mt-36 c-space">
       <h2 className="text-heading">Hear From My Clients</h2>
       <div className="relative flex flex-col items-center justify-center w-full mt-12 overflow-hidden">
         <Marquee pauseOnHover className="[--duration:20s]">

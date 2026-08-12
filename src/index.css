@@ -14,27 +14,27 @@
   --color-orange: #cc6033;
   --color-sand: #d6995c;
   --color-coral: #ea4884;
-  --animate-orbit: orbit 50s linear infinite;
+  --animate-orbit: orbit var(--duration, 50s) linear infinite;
   @keyframes orbit {
     0% {
-      transform: rotate(calc(var(--angle) * 1deg))
-        translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
+      transform: rotate(calc(var(--angle, 0) * 1deg))
+        translateY(calc(var(--radius, 100) * 1px)) rotate(calc(var(--angle, 0) * -1deg));
     }
     100% {
-      transform: rotate(calc(var(--angle) * 1deg + 360deg))
-        translateY(calc(var(--radius) * 1px))
-        rotate(calc((var(--angle) * -1deg) - 360deg));
+      transform: rotate(calc(var(--angle, 0) * 1deg + 360deg))
+        translateY(calc(var(--radius, 100) * 1px))
+        rotate(calc((var(--angle, 0) * -1deg) - 360deg));
     }
   }
-  --animate-marquee: marquee 50s linear infinite;
-  --animate-marquee-vertical: marquee-vertical 50s linear infinite;
+  --animate-marquee: marquee var(--duration, 50s) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration, 50s) linear infinite;
 
   @keyframes marquee {
     from {
       transform: translateX(0);
     }
     to {
-      transform: translateX(calc(-100% - var(--gap)));
+      transform: translateX(calc(-100% - var(--gap, 1rem)));
     }
   }
 
@@ -43,7 +43,7 @@
       transform: translateY(0);
     }
     to {
-      transform: translateY(calc(-100% - var(--gap)));
+      transform: translateY(calc(-100% - var(--gap, 1rem)));
     }
   }
 }
@@ -56,7 +56,7 @@ body {
 }
 
 .c-space {
-  @apply sm:px-10 px-5 lg:px-15;
+  @apply sm:px-10 px-5 lg:px-16;
 }
 
 .hover-animation {
@@ -64,7 +64,7 @@ body {
 }
 
 .section-spacing {
-  @apply min-h-screen mt-20 md:mt-30;
+  @apply min-h-screen mt-20 md:mt-32;
 }
 
 .text-heading {

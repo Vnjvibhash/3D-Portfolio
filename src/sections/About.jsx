@@ -27,7 +27,7 @@ const About = () => {
               solutions that deliver real impact.
             </p>
           </div>
-          <div className="absolute inset-x-0 pointer-evets-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo" />
+          <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo to-transparent" />
         </div>
         {/* Grid 2 */}
         <div className="grid-default-color grid-2">
@@ -122,7 +122,7 @@ const About = () => {
         {/* Grid 5 */}
         <div className="grid-default-color grid-5">
           <div className="z-10 w-[50%]">
-            <p className="headText">Tech Stack</p>
+            <p className="headtext">Tech Stack</p>
             <p className="subtext">
               I work with a versatile set of programming languages, frameworks,
               and tools that enable me to craft robust, scalable, and
