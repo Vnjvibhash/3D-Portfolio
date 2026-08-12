@@ -108,15 +108,21 @@ const Contact = () => {
             </div>
           </div>
           <div className="mb-6">
-            <label htmlFor="message" className="field-label">
-              Message
-            </label>
+            <div className="flex justify-between items-center">
+              <label htmlFor="message" className="field-label">
+                Message
+              </label>
+              <span className="text-xs text-neutral-500">
+                {formData.message.length}/500
+              </span>
+            </div>
             <textarea
               id="message"
               name="message"
               rows="5"
-              className="field-input field-input-focus"
-              placeholder="Share your thoughts..."
+              maxLength={500}
+              className="field-input field-input-focus resize-none"
+              placeholder="Share your project goals, ideas, or questions..."
               autoComplete="message"
               value={formData.message}
               onChange={handleChange}
@@ -125,9 +131,39 @@ const Contact = () => {
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-3.5 text-lg font-medium text-center rounded-lg cursor-pointer bg-gradient-to-r from-lavender to-royal hover:from-royal hover:to-lavender hover-animation transition duration-200 shadow-md"
+            disabled={isLoading}
+            className="w-full flex items-center justify-center gap-2 px-4 py-3.5 text-base font-semibold text-center rounded-xl cursor-pointer bg-gradient-to-r from-royal via-lavender to-royal bg-[length:200%_auto] hover:bg-right transition-all duration-500 shadow-lg shadow-lavender/25 hover:shadow-lavender/40 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed text-white shimmer-btn"
           >
-            {!isLoading ? 'Send' : 'Sending...'}
+            {isLoading ? (
+              <>
+                <svg
+                  className="animate-spin -ml-1 mr-2 h-5 w-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v8H4z"
+                  ></path>
+                </svg>
+                Sending your message...
+              </>
+            ) : (
+              <>
+                Send Message
+                <img src="assets/arrow-right.svg" className="size-4 invert" alt="send" />
+              </>
+            )}
           </button>
         </form>
       </div>

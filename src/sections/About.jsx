@@ -3,21 +3,29 @@ import Card from "../components/Card";
 import { Globe } from "../components/globe";
 import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from '../components/Frameworks';
+import SpotlightCard from "../components/SpotlightCard";
 
 const About = () => {
   const grid2Container = useRef();
   return (
     <section className="c-space section-spacing" id="about">
-      <h2 className="text-heading">About Me</h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
-        {/* Grid 1 */}
-        <div className="flex items-end grid-default-color grid-1">
+      <div className="flex flex-col items-start gap-2">
+        <span className="text-xs uppercase tracking-widest text-lavender font-semibold">Get To Know Me</span>
+        <h2 className="text-heading">About Me</h2>
+      </div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-10">
+        {/* Grid 1: Bio */}
+        <SpotlightCard
+          className="flex items-end grid-default-color grid-1 glow-card"
+          spotlightColor="rgba(122, 87, 219, 0.25)"
+        >
           <img
             src="assets/coding-pov.png"
-            className="absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5]"
+            alt="coding pov"
+            className="absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5] opacity-90 transition-transform duration-500 hover:scale-[2.6]"
           />
           <div className="z-10">
-            <p className="headtext">Hi, I&apos;m Viveka Jee</p>
+            <p className="headtext font-semibold text-white">Hi, I&apos;m Viveka Jee</p>
             <p className="subtext">
               I&apos;m a passionate Software Developer with over 2 years of
               hands-on experience building dynamic, scalable, and user-friendly
@@ -28,14 +36,18 @@ const About = () => {
             </p>
           </div>
           <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo to-transparent" />
-        </div>
-        {/* Grid 2 */}
-        <div className="grid-default-color grid-2">
+        </SpotlightCard>
+
+        {/* Grid 2: Interactive Draggable Cards */}
+        <SpotlightCard
+          className="grid-default-color grid-2 glow-card"
+          spotlightColor="rgba(51, 194, 204, 0.2)"
+        >
           <div
             ref={grid2Container}
-            className="flex items-center justify-center w-full h-full"
+            className="flex items-center justify-center w-full h-full select-none"
           >
-            <p className="flex items-end text-5xl text-gray-500">
+            <p className="flex items-end text-5xl font-black text-white/10 tracking-wider">
               CODE IS CRAFT
             </p>
 
@@ -94,35 +106,44 @@ const About = () => {
               containerRef={grid2Container}
             />
           </div>
-        </div>
+        </SpotlightCard>
 
-        {/* Grid 3 */}
-        <div className="grid-black-color grid-3">
+        {/* Grid 3: Interactive Globe */}
+        <SpotlightCard
+          className="grid-black-color grid-3 glow-card"
+          spotlightColor="rgba(87, 219, 150, 0.2)"
+        >
           <div className="z-10 w-[50%]">
-            <p className="headtext">Time Zone</p>
+            <p className="headtext font-semibold text-white">Time Zone &amp; Remote</p>
             <p className="subtext">
-              Based on Mars Standard Time. But thanks to remote work, I&apos;m
-              available to collaborate with clients and teams across the galaxy
-              (Earth included 🌍).
+              Based in India, available for flexible time zones. Thanks to remote collaboration, I work seamlessly with clients and engineering teams worldwide 🌍.
             </p>
           </div>
-          <figure className="absolute left-[30%] top-[10%]">
+          <figure className="absolute left-[30%] top-[10%] cursor-grab active:cursor-grabbing">
             <Globe />
           </figure>
-        </div>
-        {/* Grid 4 */}
-        <div className="grid-special-color grid-4">
+        </SpotlightCard>
+
+        {/* Grid 4: Call to Action */}
+        <SpotlightCard
+          className="grid-special-color grid-4 glow-card"
+          spotlightColor="rgba(255, 255, 255, 0.25)"
+        >
           <div className="flex flex-col items-center justify-center gap-4 size-full">
-            <p className="text-center headtext">
+            <p className="text-center headtext font-bold text-white px-2">
               Do you want to start a project together?
             </p>
             <CopyEmailButton />
           </div>
-        </div>
-        {/* Grid 5 */}
-        <div className="grid-default-color grid-5">
+        </SpotlightCard>
+
+        {/* Grid 5: Orbiting Tech Stack */}
+        <SpotlightCard
+          className="grid-default-color grid-5 glow-card"
+          spotlightColor="rgba(202, 47, 140, 0.2)"
+        >
           <div className="z-10 w-[50%]">
-            <p className="headtext">Tech Stack</p>
+            <p className="headtext font-semibold text-white">Tech Stack</p>
             <p className="subtext">
               I work with a versatile set of programming languages, frameworks,
               and tools that enable me to craft robust, scalable, and
@@ -135,7 +156,7 @@ const About = () => {
           <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">
             <Frameworks />
           </div>
-        </div>
+        </SpotlightCard>
       </div>
     </section>
   );

@@ -23,12 +23,16 @@ const Hero = () => {
                 scale={isMobile ? 0.23 : 0.4}
                 position={isMobile ? [0, -1.5, 0] : [3, -2, -1]}
               />
-              <OrbitControls />
+              <OrbitControls enableZoom={false} />
             </Float>
             <Rig />
           </Suspense>
         </Canvas>
       </figure>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-midnight/70 border border-white/10 backdrop-blur-md text-xs text-neutral-400">
+        <span className="inline-block size-1.5 rounded-full bg-lavender animate-pulse" />
+        <span>Drag to rotate 3D desk</span>
+      </div>
     </section>
   );
 };

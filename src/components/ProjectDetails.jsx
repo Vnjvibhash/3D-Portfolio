@@ -1,4 +1,6 @@
-import { motion } from "motion/react";
+import { useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+
 const ProjectDetails = ({
   title,
   description,
@@ -8,49 +10,90 @@ const ProjectDetails = ({
   href,
   closeModal,
 }) => {
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") closeModal();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [closeModal]);
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full p-4 overflow-hidden backdrop-blur-sm">
-      <motion.div
-        className="relative max-w-2xl max-h-[90vh] overflow-y-auto border shadow-sm rounded-2xl bg-gradient-to-l from-midnight to-navy border-white/10"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
+    <AnimatePresence>
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center w-full h-full p-4 overflow-hidden bg-black/70 backdrop-blur-md"
+        onClick={closeModal}
       >
-        <button
-          onClick={closeModal}
-          className="absolute p-2 rounded-sm top-5 right-5 bg-midnight hover:bg-gray-500 cursor-pointer"
+        <motion.div
+          className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto border shadow-2xl rounded-2xl bg-gradient-to-b from-navy to-midnight border-white/20"
+          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.9, y: 20 }}
+          transition={{ type: "spring", damping: 25, stiffness: 300 }}
+          onClick={(e) => e.stopPropagation()}
         >
-          <img src="assets/close.svg" className="w-6 h-6" />
-        </button>
-        <img src={image} alt={title} className="w-full rounded-t-2xl object-cover max-h-72" />
-        <div className="p-5">
-          <h5 className="mb-2 text-2xl font-bold text-white">{title}</h5>
-          <p className="mb-3 font-normal text-neutral-400">{description}</p>
-          {subDescription.map((subDesc, index) => (
-            <p key={index} className="mb-3 font-normal text-neutral-400">{subDesc}</p>
-          ))}
-          <div className="flex items-center justify-between mt-4">
-            <div className="flex gap-3">
-              {tags.map((tag) => (
-                <img
-                  key={tag.id}
-                  src={tag.path}
-                  alt={tag.name}
-                  className="rounded-lg size-10 hover-animation"
-                />
+          <button
+            onClick={closeModal}
+            aria-label="Close modal"
+            className="absolute z-10 p-2 rounded-full top-4 right-4 bg-midnight/80 hover:bg-white/20 border border-white/15 text-white transition-colors cursor-pointer shadow-lg"
+          >
+            <img src="assets/close.svg" className="w-5 h-5" alt="close" />
+          </button>
+          <div className="relative overflow-hidden rounded-t-2xl">
+            <img
+              src={image}
+              alt={title}
+              className="w-full object-cover max-h-72 transition-transform duration-500 hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent pointer-events-none" />
+          </div>
+          <div className="p-6 sm:p-8">
+            <h3 className="mb-2 text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              {title}
+            </h3>
+            <p className="mb-4 text-base font-normal text-neutral-300 leading-relaxed">
+              {description}
+            </p>
+            <div className="space-y-2 mb-6 bg-white/[0.03] p-4 rounded-xl border border-white/5">
+              <p className="text-xs uppercase tracking-wider text-lavender font-semibold mb-2">
+                Key Highlights
+              </p>
+              {subDescription.map((subDesc, index) => (
+                <div key={index} className="flex items-start gap-2 text-sm text-neutral-300">
+                  <span className="text-lavender mt-0.5">•</span>
+                  <span>{subDesc}</span>
+                </div>
               ))}
             </div>
-            <a
-              className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation"
-              href={href}
-              target="_blank"
-            >
-              View Project <img src="assets/arrow-up.svg" className="size-4" />
-            </a>
+            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/10">
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <span
+                    key={tag.id}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-neutral-300"
+                  >
+                    {tag.path && <img src={tag.path} alt={tag.name} className="size-3.5" />}
+                    {tag.name}
+                  </span>
+                ))}
+              </div>
+              <div className="flex items-center gap-3">
+                <a
+                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-gradient-to-r from-royal to-lavender hover:from-lavender hover:to-royal text-white shadow-lg shadow-lavender/25 transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Project <img src="assets/arrow-up.svg" className="size-4" alt="arrow" />
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-      </motion.div>
-    </div>
+        </motion.div>
+      </div>
+    </AnimatePresence>
   );
 };
 
 export default ProjectDetails;
+

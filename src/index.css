@@ -134,5 +134,36 @@ body {
 }
 
 .field-input-focus {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender/50 focus-visible:border-lavender/50;
 }
+
+/* Interactive Shimmer & Glow Effects */
+.shimmer-btn {
+  @apply relative overflow-hidden transition-all duration-300;
+}
+
+.shimmer-btn::after {
+  content: "";
+  @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent;
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.glow-pill {
+  box-shadow: 0 0 15px rgba(122, 87, 219, 0.45);
+}
+
+.glow-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glow-card:hover {
+  box-shadow: 0 8px 30px rgba(122, 87, 219, 0.15);
+  border-color: rgba(122, 87, 219, 0.35);
+}
+
