@@ -14,7 +14,7 @@ const Hero = () => {
   const isTablet = useMediaQuery({ minWidth: 854, maxWidth: 1150 });
 
   const scale = isSmall ? 0.09 : isMobile ? 0.115 : isTablet ? 0.15 : 0.20;
-  const defaultY = isSmall ? -1.25 : isMobile ? -1.15 : isTablet ? -0.85 : -0.75;
+  const defaultY = isSmall ? -1.55 : isMobile ? -1.45 : isTablet ? -1.25 : -1.15;
   const defaultX = isMobile ? 0 : isTablet ? 1.80 : 2.55;
   const defaultZ = isMobile ? -0.4 : -0.6; // Moved backward in 3D depth
   const rotation = isMobile
