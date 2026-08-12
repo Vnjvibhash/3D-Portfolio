@@ -65,11 +65,35 @@ const Contact = () => {
       {showAlert && <Alert type={alertType} text={alertMessage} />}
       <div className="flex flex-col items-center justify-center w-full max-w-xl md:max-w-2xl p-6 sm:p-8 md:p-10 mx-auto border border-white/10 rounded-2xl bg-primary/90 shadow-2xl backdrop-blur-md">
         <div className="flex flex-col items-start w-full gap-3 mb-8">
-          <h2 className="text-heading">Let&apos;s Talk</h2>
-          <p className="font-normal text-neutral-400 text-sm md:text-base">
+          <div className="flex flex-wrap items-center justify-between w-full gap-2">
+            <h2 className="text-heading">Let&apos;s Talk</h2>
+            <a
+              href="https://innovateria.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold text-white bg-royal/20 hover:bg-royal/30 border border-lavender/30 rounded-full transition-all duration-300 hover:scale-105 shadow-sm glow-pill"
+            >
+              <img
+                src="assets/logos/innovateria-icon.png"
+                alt="Innovateria Logo"
+                className="size-4 rounded-full object-contain ring-1 ring-lavender/50"
+              />
+              <span className="text-lavender font-bold">innovateria.in ↗</span>
+            </a>
+          </div>
+          <p className="font-normal text-neutral-400 text-sm md:text-base leading-relaxed">
             Whether you&apos;re looking to build a powerful new website, enhance
-            your existing platform, or bring a unique idea to life, I&apos;m
-            ready to turn your vision into reality.
+            your existing platform, or bring a unique mobile &amp; cloud idea to life with{" "}
+            <a
+              href="https://innovateria.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-lavender font-semibold underline underline-offset-4 decoration-lavender/50 transition-colors inline-flex items-center gap-1.5"
+            >
+              <img src="assets/logos/innovateria-icon.png" alt="Innovateria" className="size-4 inline rounded-full" />
+              Innovateria
+            </a>
+            , I&apos;m ready to turn your vision into reality.
           </p>
         </div>
         <form className="w-full" onSubmit={handleSubmit}>
@@ -166,6 +190,33 @@ const Contact = () => {
             )}
           </button>
         </form>
+        <div className="mt-8 pt-6 border-t border-white/10 w-full flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <img
+              src="assets/logos/innovateria-icon.png"
+              alt="Innovateria Logo Icon"
+              className="size-9 rounded-xl bg-white/5 p-1 border border-white/10 shadow-md ring-1 ring-lavender/30"
+            />
+            <div className="flex flex-col text-left">
+              <span className="text-sm font-bold text-white flex items-center gap-1.5">
+                Innovateria
+                <span className="text-[10px] font-normal uppercase tracking-wider text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-1.5 py-0.2 rounded-full">
+                  Digital Agency
+                </span>
+              </span>
+              <span className="text-xs text-neutral-400">Mobile Apps • Enterprise Software • Cloud</span>
+            </div>
+          </div>
+          <a
+            href="https://innovateria.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 hover:border-lavender/40 text-xs font-semibold text-lavender hover:text-white transition-all shadow-sm group hover:-translate-y-0.5"
+          >
+            <span>Explore Agency</span>
+            <span className="group-hover:translate-x-0.5 transition-transform">↗</span>
+          </a>
+        </div>
       </div>
     </section>
   );
