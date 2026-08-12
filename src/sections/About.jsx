@@ -5,15 +5,48 @@ import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from '../components/Frameworks';
 import SpotlightCard from "../components/SpotlightCard";
 
+const stats = [
+  { value: "2+", label: "Years Experience", icon: "⚡" },
+  { value: "12+", label: "Production Projects", icon: "🚀" },
+  { value: "100%", label: "Remote Collaboration", icon: "🌍" },
+  { value: "5.0 ★", label: "Client Satisfaction", icon: "✨" },
+];
+
 const About = () => {
   const grid2Container = useRef();
   return (
     <section className="c-space section-spacing" id="about">
-      <div className="flex flex-col items-start gap-2">
-        <span className="text-xs uppercase tracking-widest text-lavender font-semibold">Get To Know Me</span>
-        <h2 className="text-heading">About Me</h2>
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className="flex flex-col items-start gap-2">
+          <span className="text-xs uppercase tracking-widest text-lavender font-semibold">Get To Know Me</span>
+          <h2 className="text-heading">About Me</h2>
+        </div>
+        <p className="text-sm text-neutral-400 max-w-md">
+          Designing and engineering next-generation mobile applications, web platforms, and scalable backends.
+        </p>
       </div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-10">
+
+      {/* Interactive Achievement Stats Bar */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 mt-8 mb-6">
+        {stats.map((stat, i) => (
+          <div
+            key={i}
+            className="group relative flex flex-col items-center justify-center p-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-lavender/40 transition-all duration-300 shadow-md hover:-translate-y-1"
+          >
+            <span className="text-xl mb-1 group-hover:scale-125 transition-transform duration-300">
+              {stat.icon}
+            </span>
+            <span className="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-lavender">
+              {stat.value}
+            </span>
+            <span className="text-xs text-neutral-400 font-medium text-center mt-0.5">
+              {stat.label}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-6">
         {/* Grid 1: Bio */}
         <SpotlightCard
           className="flex items-end grid-default-color grid-1 glow-card"
