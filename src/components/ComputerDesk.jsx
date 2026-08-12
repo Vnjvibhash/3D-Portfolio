@@ -33,11 +33,11 @@ export function ComputerDesk(props) {
   return (
     <group
       ref={group}
-      {...props}
       dispose={null}
-      rotation={[0, -Math.PI / 2, 0]}
-      scale={props.scale || 0.4}
-      position={props.position || [3, -2, -1]}
+      rotation={props.rotation || [0, -Math.PI / 2 + 0.25, 0]}
+      scale={props.scale !== undefined ? props.scale : 0.38}
+      position={props.position || [1.35, -0.65, 0]}
+      {...props}
     >
       <ambientLight intensity={2} />
       <directionalLight position={[5, 5, 5]} intensity={3} castShadow />
