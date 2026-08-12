@@ -36,7 +36,7 @@ export function ComputerDesk(props) {
       dispose={null}
       rotation={props.rotation || [0, -Math.PI / 2 + 0.25, 0]}
       scale={props.scale !== undefined ? props.scale : 0.38}
-      position={props.position || [1.35, -0.65, 0]}
+      position={props.position || [0, 0, 0]}
       {...props}
     >
       <ambientLight intensity={1.5} />
