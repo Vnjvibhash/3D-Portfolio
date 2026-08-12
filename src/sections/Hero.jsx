@@ -12,15 +12,15 @@ const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
   const isTablet = useMediaQuery({ minWidth: 854, maxWidth: 1150 });
 
-  // Further reduced model scale for optimal balance and elegant proportions
-  const scale = isSmall ? 0.10 : isMobile ? 0.13 : isTablet ? 0.17 : 0.22;
+  // 10% more scale reduction and shifted right for optimal composition
+  const scale = isSmall ? 0.09 : isMobile ? 0.115 : isTablet ? 0.15 : 0.20;
   const position = isSmall
     ? [0, -1.05, 0]
     : isMobile
     ? [0, -0.95, 0]
     : isTablet
-    ? [0.85, -0.55, 0]
-    : [1.25, -0.45, 0];
+    ? [1.05, -0.55, 0]
+    : [1.48, -0.45, 0];
   const rotation = isMobile
     ? [0, -Math.PI / 2 + 0.15, 0]
     : [0, -Math.PI / 2 + 0.28, 0];
@@ -48,9 +48,9 @@ const Hero = () => {
               rotation={rotation}
             />
             <ContactShadows
-              position={isMobile ? [0, -1.4, 0] : [1.25, -1.1, 0]}
-              opacity={0.4}
-              scale={6}
+              position={isMobile ? [0, -1.4, 0] : [1.48, -1.1, 0]}
+              opacity={0.38}
+              scale={5.5}
               blur={2.5}
               far={3.5}
               color="#5c33cc"
