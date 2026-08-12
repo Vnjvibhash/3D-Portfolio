@@ -1,5 +1,12 @@
 import { mySocials } from "../constants";
 
+const socialStyles = {
+  WhatsApp: "hover:bg-emerald-500/20 hover:border-emerald-500/50 hover:shadow-[0_0_14px_rgba(16,185,129,0.45)]",
+  LinkedIn: "hover:bg-sky-500/20 hover:border-sky-500/50 hover:shadow-[0_0_14px_rgba(14,165,233,0.45)]",
+  Github: "hover:bg-white/20 hover:border-white/50 hover:shadow-[0_0_14px_rgba(255,255,255,0.35)]",
+  Instagram: "hover:bg-fuchsia-500/20 hover:border-fuchsia-500/50 hover:shadow-[0_0_14px_rgba(217,70,239,0.45)]",
+};
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
@@ -19,9 +26,16 @@ const Footer = () => {
               rel="noopener noreferrer"
               key={index}
               aria-label={social.name}
-              className="flex items-center justify-center size-9 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 hover:border-lavender/40 hover:-translate-y-1 transition-all duration-300 shadow-sm"
+              title={social.name}
+              className={`group flex items-center justify-center size-10 rounded-full bg-white/5 border border-white/10 hover:-translate-y-1.5 transition-all duration-300 shadow-md ${
+                socialStyles[social.name] || "hover:bg-white/15 hover:border-lavender/40 hover:shadow-[0_0_12px_rgba(122,87,219,0.4)]"
+              }`}
             >
-              <img src={social.icon} className="size-4 opacity-80 hover:opacity-100 transition-opacity" alt={social.name} />
+              <img
+                src={social.icon}
+                className="size-5 opacity-85 group-hover:opacity-100 group-hover:scale-110 transition-all duration-200"
+                alt={social.name}
+              />
             </a>
           ))}
         </div>
