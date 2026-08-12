@@ -72,12 +72,16 @@ const Navbar = () => {
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? "bg-primary/75 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/40 py-1"
-          : "bg-transparent py-2"
+          ? "bg-primary/80 backdrop-blur-2xl shadow-lg shadow-black/30 py-1.5"
+          : "bg-transparent py-2.5"
       }`}
     >
+      {/* Subtle Feathered Border Fade */}
+      {isScrolled && (
+        <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.08] to-transparent pointer-events-none" />
+      )}
       <div className="mx-auto c-space max-w-7xl">
-        <div className="flex items-center justify-between py-2 sm:py-1">
+        <div className="flex items-center justify-between py-1.5">
           <a
             href="/"
             className="flex items-center gap-2.5 text-xl font-bold tracking-tight text-white group"
@@ -86,7 +90,7 @@ const Navbar = () => {
             <span className="transition-colors group-hover:text-lavender">
               Viveka Jee
             </span>
-            <span className="hidden md:inline-block text-[11px] font-normal uppercase tracking-wider text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded-full ml-1">
+            <span className="hidden md:inline-block text-[11px] font-normal uppercase tracking-wider text-emerald-400 bg-emerald-950/60 border border-emerald-500/20 px-2.5 py-0.5 rounded-full ml-1">
               Available for hire
             </span>
           </a>
@@ -109,12 +113,13 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="block overflow-hidden text-center sm:hidden bg-primary/95 backdrop-blur-2xl border-b border-white/10"
+            className="relative block overflow-hidden text-center sm:hidden bg-primary/95 backdrop-blur-2xl"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
           >
+            <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
             <nav className="py-4">
               <Navigation
                 activeSection={activeSection}
