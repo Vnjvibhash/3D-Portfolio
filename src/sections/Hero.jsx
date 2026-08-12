@@ -1,10 +1,9 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import HeroText from '../components/HeroText';
 import { ComputerDesk } from '../components/ComputerDesk';
-import { Float, OrbitControls } from '@react-three/drei';
+import { Float, OrbitControls, ContactShadows } from '@react-three/drei';
 import { useMediaQuery } from 'react-responsive';
-import { easing } from 'maath';
-import { Suspense } from 'react';
+import { useRef, Suspense } from 'react';
 import Loader from '../components/Loader';
 import ParallaxBackground from '../components/parallaxBackground';
 
@@ -32,21 +31,27 @@ const Hero = () => {
       <figure className="absolute inset-0 w-full h-full">
         <Canvas camera={{ position: [0, 1, 3], fov: 60 }}>
           <Suspense fallback={<Loader />}>
-            <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.35}>
-              <ComputerDesk
-                scale={scale}
-                position={position}
-                rotation={rotation}
-              />
-              <OrbitControls
-                enableZoom={false}
-                maxPolarAngle={Math.PI / 2 + 0.1}
-                minPolarAngle={Math.PI / 6}
-                maxAzimuthAngle={Math.PI / 2.5}
-                minAzimuthAngle={-Math.PI / 2.5}
-              />
-            </Float>
-            <Rig />
+            <OrbitControls
+              enableZoom={false}
+              enablePan={false}
+              maxPolarAngle={Math.PI / 2 + 0.05}
+              minPolarAngle={Math.PI / 6}
+              maxAzimuthAngle={Math.PI / 2.5}
+              minAzimuthAngle={-Math.PI / 2.5}
+            />
+            <ModelContainer
+              scale={scale}
+              position={position}
+              rotation={rotation}
+            />
+            <ContactShadows
+              position={isMobile ? [0, -1.8, 0] : [1.35, -1.5, 0]}
+              opacity={0.5}
+              scale={8}
+              blur={2.5}
+              far={4}
+              color="#5c33cc"
+            />
           </Suspense>
         </Canvas>
       </figure>
@@ -58,16 +63,29 @@ const Hero = () => {
   );
 };
 
-function Rig() {
-  return useFrame((state, delta) => {
-    easing.damp3(
-      state.camera.position,
-      [state.mouse.x / 12, 1 + state.mouse.y / 14, 3],
-      0.5,
-      delta,
-    );
+function ModelContainer({ scale, position, rotation }) {
+  const containerRef = useRef();
+
+  useFrame((state) => {
+    if (containerRef.current) {
+      containerRef.current.rotation.y = (state.mouse.x * Math.PI) / 20;
+      containerRef.current.rotation.x = (-state.mouse.y * Math.PI) / 30;
+    }
   });
+
+  return (
+    <group ref={containerRef}>
+      <Float speed={1.5} rotationIntensity={0.15} floatIntensity={0.3}>
+        <ComputerDesk
+          scale={scale}
+          position={position}
+          rotation={rotation}
+        />
+      </Float>
+    </group>
+  );
 }
 
 export default Hero;
+
 

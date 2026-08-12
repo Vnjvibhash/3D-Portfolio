@@ -39,8 +39,10 @@ export function ComputerDesk(props) {
       position={props.position || [1.35, -0.65, 0]}
       {...props}
     >
-      <ambientLight intensity={2} />
-      <directionalLight position={[5, 5, 5]} intensity={3} castShadow />
+      <ambientLight intensity={1.5} />
+      <directionalLight position={[5, 6, 5]} intensity={3} castShadow />
+      <pointLight position={[-3, 2, 2]} intensity={2.5} color="#7a57db" />
+      <pointLight position={[2, -1, 2]} intensity={1.5} color="#33c2cc" />
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="root">
