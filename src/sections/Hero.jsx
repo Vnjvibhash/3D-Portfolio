@@ -14,8 +14,8 @@ const Hero = () => {
   const isTablet = useMediaQuery({ minWidth: 854, maxWidth: 1150 });
 
   const scale = isSmall ? 0.09 : isMobile ? 0.115 : isTablet ? 0.15 : 0.20;
-  const defaultY = isSmall ? -2.20 : isMobile ? -2.10 : isTablet ? -1.90 : -1.80;
-  const defaultX = isMobile ? 0 : isTablet ? 1.80 : 2.55;
+  const defaultY = isSmall ? -1.80 : isMobile ? -1.70 : isTablet ? -1.50 : -1.40;
+  const defaultX = isMobile ? 0 : isTablet ? 1.50 : 2.15;
   const defaultZ = isMobile ? 0.25 : 0.35; // Moved forward toward the camera
   const rotation = isMobile
     ? [0, -Math.PI * 0.68, 0]
